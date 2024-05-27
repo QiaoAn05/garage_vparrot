@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Garage VParrot - Accueil{% endblock %}
+
+{% block body %}
+    <div id='home'></div>
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+{% endblock %}
