@@ -1,3 +1,52 @@
 body {
     background-color: lightgray;
+    margin: 0;
+    background-color: #F2F2F2;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #262526;
+    color: #F2F2F2;
+}  
+
+ul {
+        display: flex;
+        gap: 30px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #F2F2F2;
+}
+
+.hero-banner {
+    padding-top: 60px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../images/garage.jpg");
+    background-size: cover;
+}
+
+.hero-banner-infos {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   width: 100%;
+}
+
+.btn-contact {
+    display: flex;
+    background-color: #262526;
+    border-radius: 10px;
+    padding: 10px;
 }
