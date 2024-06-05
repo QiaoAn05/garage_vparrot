@@ -1,7 +1,12 @@
 body {
-    background-color: lightgray;
     margin: 0;
     background-color: #F2F2F2;
+}
+
+#home {
+    display:flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 /* Header */
@@ -25,16 +30,31 @@ li {
 
 a {
     text-decoration: none;
+}
+
+.link {
     color: #F2F2F2;
 }
 
+/* Main */
+
+main {
+    flex-grow: 1;
+}
+
 .hero-banner {
-    padding-top: 60px;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
     background-image: url("../images/garage.jpg");
     background-size: cover;
+}
+
+.black-filter {
+    background-color: rgba(38, 37, 38, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    justify-content: space-around;
+    color: #F2F2F2;
 }
 
 .hero-banner-infos {
@@ -46,7 +66,36 @@ a {
 
 .btn-contact {
     display: flex;
-    background-color: #262526;
+    background-color: #F2F2F2;
     border-radius: 10px;
     padding: 10px;
+}
+
+.btn-contact a {
+    color: #262526;
+}
+section {
+    padding: 20px 100px;
+}
+
+.bg-dark {
+    background-color: #262526;
+    color:#F2F2F2;
+}
+
+.link-primary {
+    color:#D92332;
+}
+.link-accent {
+    color:#FFC107;
+}
+
+.about, .services, .second-hand, .contact {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+img {
+    width: 200px;
 }
