@@ -122,3 +122,33 @@ footer {
     justify-content: space-between;
     padding: 0 60px;
 }
+
+@media screen and (max-width: 900px) {
+
+    img {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero-banner-infos {
+        width: 350px;
+    }
+
+    .footer-infos {
+        /* width: 350px; */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-bottom-infos {
+        /* flex-direction: column;
+        text-align: center; */
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+}
