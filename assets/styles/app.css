@@ -4,7 +4,7 @@ body {
 }
 
 #home {
-    display:flex;
+    display: flex;
     flex-direction: column;
     height: 100vh;
 }
@@ -20,8 +20,8 @@ header {
 }  
 
 ul {
-        display: flex;
-        gap: 30px;
+    display: flex;
+    gap: 30px;
 }
 
 li {
@@ -39,6 +39,10 @@ a {
 .link:hover {
     text-decoration: underline;
     color:#FFC107;
+}
+
+.nav-toggler {
+    display: none;
 }
 
 /* Main */
@@ -79,18 +83,20 @@ main {
 .btn-contact a {
     color: #262526;
 }
+
 section {
     padding: 20px 100px;
 }
 
 .bg-dark {
     background-color: #262526;
-    color:#F2F2F2;
+    color: #F2F2F2;
 }
 
 .link-primary {
     color:#D92332;
 }
+
 .link-accent {
     color:#FFC107;
 }
@@ -108,7 +114,6 @@ img {
 footer {
     background-color: #262526;
     color: #F2F2F2;
-
 }
 
 .footer-infos {
@@ -124,7 +129,6 @@ footer {
 }
 
 @media screen and (max-width: 900px) {
-
     img {
         display: none;
     }
@@ -133,12 +137,29 @@ footer {
         display: none;
     }
 
+    nav.active {
+        display: flex;
+        justify-content: end;
+        text-align: right;
+        position: absolute;
+        top: 60px;
+        right: 0px;
+        width: 100%;
+        background-color: #262526;
+        padding-right: 110px;
+        padding-top: 20px;
+    }
+
+    ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .hero-banner-infos {
         width: 350px;
     }
 
     .footer-infos {
-        /* width: 350px; */
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -146,9 +167,48 @@ footer {
     }
 
     .footer-bottom-infos {
-        /* flex-direction: column;
-        text-align: center; */
         gap: 10px;
         font-size: 0.9rem;
+    }
+
+    .nav-toggler {
+        height: 50px;
+        width: 50px;
+        border:none;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color:#262526;
+    }
+
+    .line {
+        position: absolute;
+        display: block;
+        width: 50px;
+        height: 2px;
+        background-color: #F2F2F2;
+        transition: transform 0.3s ease-out, opacity 0.1s ease-out;
+    }
+
+    .l1 {
+        transform: translateY(-10px);
+    }
+
+    .l3 {
+        transform: translateY(10px);
+    }
+
+    .nav-toggler.active .l1 {
+        transform: translateY(0px) rotate(135deg);
+    }
+
+    .nav-toggler.active .l2 {
+        opacity: 0;
+    }
+
+    .nav-toggler.active .l3 {
+        transform: translateY(0px) rotate(-135deg);
     }
 }
