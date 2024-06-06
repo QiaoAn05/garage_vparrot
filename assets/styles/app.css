@@ -36,6 +36,11 @@ a {
     color: #F2F2F2;
 }
 
+.link:hover {
+    text-decoration: underline;
+    color:#FFC107;
+}
+
 /* Main */
 
 main {
