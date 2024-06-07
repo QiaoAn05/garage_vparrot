@@ -6,9 +6,9 @@ import CarTest from '../../images/car-test.jpg'
 export default function SecondHand() {
     // state (état, données)
     const [cars, setCars] = useState([
-        { id: 1, name: 'Audi', km: '13000', year: '2019', price: 18000},
-        { id: 2, name: 'Mercedes', km: '8000', year: '2021', price: 25000},
-        { id: 3, name: 'Citroen C5', km: '20000', year: '2017', price: 10000}
+        { id: 1, name: 'Audi', km: 13000, year: 2019, price: 18000},
+        { id: 2, name: 'Mercedes', km: 8000, year: 2021, price: 25000},
+        { id: 3, name: 'Citroen C5', km: 20000, year: 2017, price: 10000}
     ])
     
     // comportements
@@ -52,6 +52,13 @@ export default function SecondHand() {
                 </div>
             </div>
             <h2>Découvrez nos voitures d'occasions</h2>
+            <form action="submit">
+                <input type="text" placeholder='Ajouter le nom ici' />
+                <input type="number" placeholder='Ajouter le nombre de km ici' />
+                <input type="number" placeholder="Ajouter l'année ici" />
+                <input type="number" placeholder='Ajouter le prix ici' />
+                <button>Ajouter</button>
+            </form>
             <section className='filter-container'>
                 <select name="filter" id="filter">
                     <option value=""></option>
@@ -60,6 +67,7 @@ export default function SecondHand() {
                     <option value="">Km</option>
                 </select>
             </section>
+
             <section className='cards-container'>
                 {cars.length === 0 ? (
                         <p>Il n'y a aucune voiture en vente pour le moment.</p>
@@ -84,3 +92,8 @@ export default function SecondHand() {
         </>
     );
 }
+
+//Gestion du formulaire
+//1. création du formulaire
+//2. soumission du formulaire
+//3. collecte des données du formulaire
