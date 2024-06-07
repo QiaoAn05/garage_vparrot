@@ -133,10 +133,7 @@ footer {
 }
 
 @media screen and (max-width: 900px) {
-    img {
-        display: none;
-    }
-
+    
     nav {
         display: none;
     }
@@ -156,10 +153,6 @@ footer {
     ul {
         flex-direction: column;
         gap: 10px;
-    }
-
-    .hero-banner-infos {
-        width: 350px;
     }
 
     .footer-infos {

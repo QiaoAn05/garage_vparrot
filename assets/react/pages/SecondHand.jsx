@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ImgMemory from '../../images/old-memory.jpg';
+import CarTest from '../../images/car-test.jpg'
 
 export default function SecondHand() {
     return (
@@ -41,14 +41,14 @@ export default function SecondHand() {
             </section>
             <section className='cards-container'>
             <div className='card'>
-                <img src="" alt="image de la card" />
+                <img src={CarTest} alt="image de la card" />
                 <h3>Titre de la card</h3>
                 <div className='card-infos'>
                     <div className='card-km'><h4>Km</h4><p>12000</p></div>
                     <div className='card-price'><h4>€</h4><p>23000</p></div>
                     <div className='card-year'><h4>Année</h4><p>2018</p></div>
                 </div>
-                <p>Publié le 07/06/2024</p>
+                <p className='card-publishedAt'>Publié le 07/06/2024</p>
             </div>
             <div className='card'></div>
             <div className='card'></div>

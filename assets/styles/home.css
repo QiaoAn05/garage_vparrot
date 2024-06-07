@@ -1,3 +1,16 @@
 h2 {
     text-align: left;
 }
+
+@media screen and (max-width: 900px) {
+    img {
+        display: none;
+    }
+
+
+    .hero-banner-infos {
+        width: 350px;
+    }
+
+
+}
