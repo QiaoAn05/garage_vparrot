@@ -32,10 +32,20 @@ export default function SecondHand() {
             </div>
             <h2>Découvrez nos voitures d'occasions</h2>
             <section className='filter-container'>
-
+                <select name="filter" id="filter">
+                    <option value=""></option>
+                    <option value="">Prix</option>
+                    <option value="">Années</option>
+                    <option value="">Km</option>
+                </select>
             </section>
             <section className='cards-container'>
-
+            <div className='card'></div>
+            <div className='card'></div>
+            <div className='card'></div>
+            <div className='card'></div>
+            <div className='card'></div>
+            <div className='card'></div>
             </section>
         </main>
         <Footer/>
