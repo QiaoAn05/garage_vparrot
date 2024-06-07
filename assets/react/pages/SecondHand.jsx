@@ -10,6 +10,11 @@ export default function SecondHand() {
         { id: 2, name: 'Mercedes', km: 8000, year: 2021, price: 25000},
         { id: 3, name: 'Citroen C5', km: 20000, year: 2017, price: 10000}
     ])
+
+    const [newCar, setNewCar] = useState("");
+    const [newKm, setNewKm] = useState(0);
+    const [newYear, setNewYear] = useState(0);
+    const [newPrice, setNewPrice] = useState(0);
     
     // comportements
 
@@ -22,6 +27,37 @@ export default function SecondHand() {
 
         //3. modifier le state avec le setter
         setCars(carsCopyUpdated);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        //1. copie du state
+        const carsCopy = [...cars];
+        //2. manipulation de la copie du state
+        const id = new Date().getTime();
+        const name = newCar;
+        const km = newKm;
+        const year = newYear;
+        const price = newPrice;
+        // carsCopy.push({id: id, name: name});
+        carsCopy.push({id, name, km, year, price});
+
+        //3. modifier le state avec le setter
+        setCars(carsCopy);
+        setNewCar("");
+    }
+
+    const handleChangeName = (event) => {
+        setNewCar(event.target.value) 
+    }
+    const handleChangeKm = (event) => {
+        setNewKm(event.target.value) 
+    }
+    const handleChangeYear = (event) => {
+        setNewYear(event.target.value) 
+    }
+    const handleChangePrice = (event) => {
+        setNewPrice(event.target.value) 
     }
 
     // affichage (render)
@@ -52,11 +88,11 @@ export default function SecondHand() {
                 </div>
             </div>
             <h2>Découvrez nos voitures d'occasions</h2>
-            <form action="submit">
-                <input type="text" placeholder='Ajouter le nom ici' />
-                <input type="number" placeholder='Ajouter le nombre de km ici' />
-                <input type="number" placeholder="Ajouter l'année ici" />
-                <input type="number" placeholder='Ajouter le prix ici' />
+            <form action="submit" onSubmit={handleSubmit}>
+                <input value={newCar} onChange={handleChangeName} type="text" placeholder='Ajouter le nom ici' />
+                <input  value={newKm} onChange={handleChangeKm} type="number" placeholder='Ajouter le nombre de km ici' />
+                <input value={newYear} onChange={handleChangeYear} type="number" placeholder="Ajouter l'année ici" />
+                <input  value={newPrice} onChange={handleChangePrice} type="number" placeholder='Ajouter le prix ici' />
                 <button>Ajouter</button>
             </form>
             <section className='filter-container'>
@@ -97,3 +133,5 @@ export default function SecondHand() {
 //1. création du formulaire
 //2. soumission du formulaire
 //3. collecte des données du formulaire
+//3a. méthode 1: documentGetElementById "React"
+//3b. méthode 2: sync descendante / ascendante
