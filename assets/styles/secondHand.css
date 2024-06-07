@@ -65,4 +65,19 @@ img {
 
 .card-publishedAt {
     color: #757575;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.delUp-card button {
+    padding: 0.5rem;
+    border: none;
+    color: #262526;
+    border-radius: 5px;
+}
+
+.delUp-card button:hover {
+    background-color: #D92332;
+    color: #F2F2F2;
 }

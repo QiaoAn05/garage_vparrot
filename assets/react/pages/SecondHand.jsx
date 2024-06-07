@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CarTest from '../../images/car-test.jpg'
 
 export default function SecondHand() {
+    // state (état, données)
+    const [cars, setCars] = useState([
+        { id: 1, name: 'Audi', km: '13000', year: '2019', price: 18000},
+        { id: 2, name: 'Mercedes', km: '8000', year: '2021', price: 25000},
+        { id: 3, name: 'Citroen C5', km: '20000', year: '2017', price: 10000}
+    ])
+    
+    // comportements
+
+    const handleDelete = (id) => {
+        //1. copie du state
+        const carsCopy = [...cars];
+
+        //2. manipuler la copie du state
+        const carsCopyUpdated = carsCopy.filter(car => car.id !== id);
+
+        //3. modifier le state avec le setter
+        setCars(carsCopyUpdated);
+    }
+
+    // affichage (render)
     return (
         <>
         <Header/>
@@ -40,21 +61,23 @@ export default function SecondHand() {
                 </select>
             </section>
             <section className='cards-container'>
-            <div className='card'>
-                <img src={CarTest} alt="image de la card" />
-                <h3>Titre de la card</h3>
-                <div className='card-infos'>
-                    <div className='card-km'><h4>Km</h4><p>12000</p></div>
-                    <div className='card-price'><h4>€</h4><p>23000</p></div>
-                    <div className='card-year'><h4>Année</h4><p>2018</p></div>
-                </div>
-                <p className='card-publishedAt'>Publié le 07/06/2024</p>
-            </div>
-            <div className='card'></div>
-            <div className='card'></div>
-            <div className='card'></div>
-            <div className='card'></div>
-            <div className='card'></div>
+                {cars.length === 0 ? (
+                        <p>Il n'y a aucune voiture en vente pour le moment.</p>
+                    ) : (
+                    cars.map((car)=>(
+                        <div key={car.id} className='card'>
+                            <img src={CarTest} alt="image de la card" />
+                            <h3>{car.name}</h3>
+                            <div className='card-infos'>
+                                <div className='card-km'><h4>Km</h4><p>{car.km}</p></div>
+                                <div className='card-price'><h4>€</h4><p>{car.price}</p></div>
+                                <div className='card-year'><h4>Année</h4><p>{car.year}</p></div>
+                            </div>
+                            <p className='card-publishedAt'>Publié le 07/06/2024<span className='delUp-card'><button onClick={()=>handleDelete(car.id)}>X</button></span></p>
+                            
+                        </div>
+                    ))
+                )}       
             </section>
         </main>
         <Footer/>
