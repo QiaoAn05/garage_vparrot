@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Garage VParrot - Second hand{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('secondHand') }}
+    {% endblock %}
+{% block body %}
+    <div id='secondHand'></div>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('secondHand') }}
+    {% endblock %}
+{% endblock %}

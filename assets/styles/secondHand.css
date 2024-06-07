@@ -1,0 +1,16 @@
+main {
+    background-color: yellow;
+}
+
+h2 {
+    text-align: center;
+    background-color: blue;
+}
+
+.filter-container {
+    background-color: black;
+}
+
+.cards-container {
+    background-color: gray;
+}

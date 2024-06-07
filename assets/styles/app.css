@@ -148,12 +148,8 @@ footer {
         align-items: center;
         position: absolute;
         top: 60px;
-        /* right: 0px; */
         width: 100%;
         background-color: #262526;
-        /* padding-right: 110px; */
-        /* padding-left: 60px; */
-        /* padding-top: 20px; */
         height: 100vh;
     }
 
