@@ -81,7 +81,7 @@ export default function SecondHand() {
                         <p>Il n'y a aucune voiture en vente pour le moment.</p>
                     ) : (
                     cars.map((car)=>(
-                        <Car key={car.id} carInfo={car} handleDelete={handleDelete}/>
+                        <Car key={car.id} carInfo={car} onClick={()=>handleDelete(car.id)}/>
                     ))
                 )}       
             </section>
