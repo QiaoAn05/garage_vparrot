@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import CarTest from '../../images/car-test.jpg'
+import Car from '../components/Car';
+
 
 export default function SecondHand() {
     // state (état, données)
@@ -39,8 +40,9 @@ export default function SecondHand() {
         const km = newKm;
         const year = newYear;
         const price = newPrice;
-        // carsCopy.push({id: id, name: name});
-        carsCopy.push({id, name, km, year, price});
+        const carToAdd = {id, name, km, year, price};
+       
+        carsCopy.push(carToAdd); // carsCopy.push({id: id, name: name});
 
         //3. modifier le state avec le setter
         setCars(carsCopy);
@@ -89,10 +91,10 @@ export default function SecondHand() {
             </div>
             <h2>Découvrez nos voitures d'occasions</h2>
             <form action="submit" onSubmit={handleSubmit}>
-                <input value={newCar} onChange={handleChangeName} type="text" placeholder='Ajouter le nom ici' />
-                <input  value={newKm} onChange={handleChangeKm} type="number" placeholder='Ajouter le nombre de km ici' />
-                <input value={newYear} onChange={handleChangeYear} type="number" placeholder="Ajouter l'année ici" />
-                <input  value={newPrice} onChange={handleChangePrice} type="number" placeholder='Ajouter le prix ici' />
+                <input value={newCar} onChange={handleChangeName} type="text" placeholder='Ajouter le nom ici' required/>
+                <input  value={newKm} onChange={handleChangeKm} type="number" placeholder='Ajouter le nombre de km ici' required/>
+                <input value={newYear} onChange={handleChangeYear} type="number" placeholder="Ajouter l'année ici" required/>
+                <input  value={newPrice} onChange={handleChangePrice} type="number" placeholder='Ajouter le prix ici' required/>
                 <button>Ajouter</button>
             </form>
             <section className='filter-container'>
@@ -109,17 +111,7 @@ export default function SecondHand() {
                         <p>Il n'y a aucune voiture en vente pour le moment.</p>
                     ) : (
                     cars.map((car)=>(
-                        <div key={car.id} className='card'>
-                            <img src={CarTest} alt="image de la card" />
-                            <h3>{car.name}</h3>
-                            <div className='card-infos'>
-                                <div className='card-km'><h4>Km</h4><p>{car.km}</p></div>
-                                <div className='card-price'><h4>€</h4><p>{car.price}</p></div>
-                                <div className='card-year'><h4>Année</h4><p>{car.year}</p></div>
-                            </div>
-                            <p className='card-publishedAt'>Publié le 07/06/2024<span className='delUp-card'><button onClick={()=>handleDelete(car.id)}>X</button></span></p>
-                            
-                        </div>
+                        <Car carInfo={car} handleDelete={handleDelete}/>
                     ))
                 )}       
             </section>
