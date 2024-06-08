@@ -7,7 +7,7 @@ export default function Car({carInfo, handleDelete}) {
     //affichage (render)
     return(
         <>
-            <div key={carInfo.id} className='card'>
+            <div className='card'>
                 <img src={CarTest} alt="image de la card" />
                     <h3>{carInfo.name}</h3>
                     <div className='card-infos'>
