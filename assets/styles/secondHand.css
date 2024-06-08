@@ -74,6 +74,11 @@ img {
     justify-content: space-between;
 }
 
+.delUp-card {
+    display: flex;
+    gap:10px;
+}
+
 .delUp-card button {
     padding: 0.5rem;
     border: none;
@@ -81,8 +86,13 @@ img {
     border-radius: 5px;
 }
 
-.delUp-card button:hover {
+.delUp-card .btn-delete:hover {
     background-color: #D92332;
+    color: #F2F2F2;
+}
+
+.delUp-card .btn-update:hover {
+    background-color:#262526;
     color: #F2F2F2;
 }
 

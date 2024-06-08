@@ -18,7 +18,8 @@ export default function Car({carInfo, onClick}) {
                     <p className='card-publishedAt'>
                         Publié le 07/06/2024
                         <span className='delUp-card'>
-                            <button onClick={onClick}>X</button>
+                            <button className="btn-update" onClick={onClick}>Edit</button>
+                            <button className="btn-delete" onClick={onClick}>X</button>
                         </span>
                     </p>                            
             </div>
