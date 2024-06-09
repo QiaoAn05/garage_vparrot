@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Car from '../components/Car';
 import CarForm from '../components/CarForm';
+import EditForm from '../components/EditForm';
 
 
 export default function SecondHand() {
@@ -13,7 +14,7 @@ export default function SecondHand() {
         { id: 3, name: 'Citroen C5', km: 20000, year: 2017, price: 10000}
     ])
 
-
+    const [editingCar, setEditingCar] = useState(null);
     
     // comportements
 
@@ -29,12 +30,22 @@ export default function SecondHand() {
     }
 
     const handleAdd = (carToAdd) => {
-        //copie du state
+        //1. copie du state
         const carsCopy = [...cars];
-        //manipulation sur la copie du state
+        //2. manipulation sur la copie du state
         carsCopy.push(carToAdd); // carsCopy.push({id: id, name: name});
         //3. modifier le state avec le setter
         setCars(carsCopy);
+    }
+
+    const updateCar = (carToUpdate) => {
+        //1. copie du state
+        const carsCopy = [...cars];
+        //2. manipulation sur la copie du state
+        const carsCopyUpdated = carsCopy.map((car) => car.id === carToUpdate.id ? carToUpdate : car);
+        //3. modifier le state avec le setter
+        setCars(carsCopyUpdated);
+        setEditingCar(null);
     }
 
     // affichage (render)
@@ -66,6 +77,14 @@ export default function SecondHand() {
             </div>
             <h2>Découvrez nos voitures d'occasions</h2>
             <CarForm handleAdd={handleAdd}/>
+
+            {editingCar && (
+                <EditForm
+                    car={editingCar}
+                    handleUpdate={updateCar}
+                    handleCancel={()=>{setEditingCar(null)}}
+                />
+            )}
             
             <section className='filter-container'>
                 <select name="filter" id="filter">
@@ -81,7 +100,7 @@ export default function SecondHand() {
                         <p>Il n'y a aucune voiture en vente pour le moment.</p>
                     ) : (
                     cars.map((car)=>(
-                        <Car key={car.id} carInfo={car} onClick={()=>handleDelete(car.id)}/>
+                        <Car key={car.id} carInfo={car} onClick={()=>handleDelete(car.id)} onEdit={()=>setEditingCar(car)}/>
                     ))
                 )}       
             </section>

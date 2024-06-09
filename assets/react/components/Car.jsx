@@ -1,7 +1,7 @@
 import React from "react";
 import CarTest from '../../images/car-test.jpg';
 
-export default function Car({carInfo, onClick}) {
+export default function Car({carInfo, onClick, onEdit}) {
     //state
     //comportement
     //affichage (render)
@@ -18,7 +18,7 @@ export default function Car({carInfo, onClick}) {
                     <p className='card-publishedAt'>
                         Publié le 07/06/2024
                         <span className='delUp-card'>
-                            <button className="btn-update" onClick={onClick}>Edit</button>
+                            <button className="btn-update" onClick={onEdit}>Edit</button>
                             <button className="btn-delete" onClick={onClick}>X</button>
                         </span>
                     </p>                            

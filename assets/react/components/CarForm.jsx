@@ -3,9 +3,9 @@ import React, { useState } from "react";
 export default function CarForm({handleAdd}) {
     //state
     const [newCar, setNewCar] = useState("");
-    const [newKm, setNewKm] = useState(0);
-    const [newYear, setNewYear] = useState(0);
-    const [newPrice, setNewPrice] = useState(0);
+    const [newKm, setNewKm] = useState(null);
+    const [newYear, setNewYear] = useState(null);
+    const [newPrice, setNewPrice] = useState(null);
     //comportements
     
     const handleSubmit = (event) => {
