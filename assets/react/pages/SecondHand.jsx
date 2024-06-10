@@ -35,6 +35,15 @@ export default function SecondHand() {
 
         //3. modifier le state avec le setter
         setCars(carsCopyUpdated);
+
+        axios.delete(`/car/delete/${id}`)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.error('Error deleting car:', error);
+            });
+
     }
 
     const handleAdd = (carToAdd) => {
@@ -44,6 +53,14 @@ export default function SecondHand() {
         carsCopy.push(carToAdd); // carsCopy.push({id: id, name: name});
         //3. modifier le state avec le setter
         setCars(carsCopy);
+        axios.post('/car/create', carToAdd)
+        .then(response => {
+          console.log(response.data);
+        //   window.location.reload();
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
 
     const updateCar = (carToUpdate) => {

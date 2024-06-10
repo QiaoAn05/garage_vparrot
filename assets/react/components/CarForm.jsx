@@ -13,12 +13,12 @@ export default function CarForm({handleAdd}) {
         //1. copie du state
         
         //2. manipulation de la copie du state
-        const id = new Date().getTime();
+        // const id = new Date().getTime();
         const name = newCar;
         const km = newKm;
         const year = newYear;
         const price = newPrice;
-        const carToAdd = {id, name, km, year, price};
+        const carToAdd = {name, km, year, price};
 
         //3. modifier le state avec le setter
         handleAdd(carToAdd)
