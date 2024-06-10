@@ -1,20 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Car from '../components/Car';
 import CarForm from '../components/CarForm';
 import EditForm from '../components/EditForm';
+import axios from 'axios';
 
 
 export default function SecondHand() {
     // state (état, données)
-    const [cars, setCars] = useState([
-        { id: 1, name: 'Audi', km: 13000, year: 2019, price: 18000},
-        { id: 2, name: 'Mercedes', km: 8000, year: 2021, price: 25000},
-        { id: 3, name: 'Citroen C5', km: 20000, year: 2017, price: 10000}
-    ])
+    const [cars, setCars] = useState([])
 
     const [editingCar, setEditingCar] = useState(null);
+
+    useEffect(() => {
+        axios.get('/cars/read')
+            .then(response => {
+                setCars(response.data);
+                console.log(response);
+            })
+            .catch(error => {
+                console.error('Error fetching cars:', error);
+            });
+    }, []);
     
     // comportements
 

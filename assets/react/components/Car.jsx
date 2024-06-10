@@ -16,7 +16,7 @@ export default function Car({carInfo, onClick, onEdit}) {
                         <div className='card-year'><h4>Année</h4><p>{carInfo.year}</p></div>
                     </div>
                     <p className='card-publishedAt'>
-                        Publié le 07/06/2024
+                        Publié le { carInfo.updatedAt }
                         <span className='delUp-card'>
                             <button className="btn-update" onClick={onEdit}>Edit</button>
                             <button className="btn-delete" onClick={onClick}>X</button>
