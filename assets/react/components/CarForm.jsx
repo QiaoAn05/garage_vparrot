@@ -23,6 +23,9 @@ export default function CarForm({handleAdd}) {
         //3. modifier le state avec le setter
         handleAdd(carToAdd)
         setNewCar("");
+        setNewKm("");
+        setNewYear("");
+        setNewPrice("");
     }
 
     const handleChangeName = (event) => {
