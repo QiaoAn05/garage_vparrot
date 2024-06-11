@@ -97,12 +97,31 @@ img {
 }
 
 form {
-    background-color: #262526;
-    /* width: 100%; */
     padding: 10px;
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+form input {
+    border: none;
+}
+
+form button {
+    display: flex;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.form-add {
+    background-color: #262526;
+}
+
+.form-edit {
+    background-color: #FFC107;
 }

@@ -35,6 +35,7 @@ export default function SecondHand() {
 
         //3. modifier le state avec le setter
         setCars(carsCopyUpdated);
+        setEditingCar(null);
 
         axios.delete(`/car/delete/${id}`)
             .then(response => {
@@ -53,7 +54,7 @@ export default function SecondHand() {
         carsCopy.push(carToAdd); // carsCopy.push({id: id, name: name});
         //3. modifier le state avec le setter
         setCars(carsCopy);
-        axios.post('/car/create', carToAdd)
+        axios.post('/car/createOrUpdate', carToAdd)
         .then(response => {
           console.log(response.data);
         //   window.location.reload();
@@ -71,6 +72,15 @@ export default function SecondHand() {
         //3. modifier le state avec le setter
         setCars(carsCopyUpdated);
         setEditingCar(null);
+
+        axios.post('/car/createOrUpdate', carToUpdate)
+        .then(response => {
+          console.log(response.data);
+        //   window.location.reload();
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
 
     // affichage (render)
@@ -101,8 +111,10 @@ export default function SecondHand() {
                 </div>
             </div>
             <h2>Découvrez nos voitures d'occasions</h2>
-            <CarForm handleAdd={handleAdd}/>
-
+            {!editingCar && (
+                <CarForm handleAdd={handleAdd}/>
+            )}
+            
             {editingCar && (
                 <EditForm
                     car={editingCar}

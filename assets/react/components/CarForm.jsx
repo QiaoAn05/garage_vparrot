@@ -40,7 +40,7 @@ export default function CarForm({handleAdd}) {
     //affichage (render)
     return(
         <>
-            <form action="submit" onSubmit={handleSubmit}>
+            <form className="form-add" action="submit" onSubmit={handleSubmit}>
                 <input value={newCar} onChange={handleChangeName} type="text" placeholder='Ajouter le nom ici' required/>
                 <input  value={newKm} onChange={handleChangeKm} type="number" placeholder='Ajouter le nombre de km ici' required/>
                 <input value={newYear} onChange={handleChangeYear} type="number" placeholder="Ajouter l'année ici" required/>

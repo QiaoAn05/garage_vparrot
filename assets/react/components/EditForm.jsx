@@ -17,7 +17,7 @@ export default function EditForm({car, handleUpdate, handleCancel}) {
     //affichage (render)
     return(
         <>
-            <form action="submit" onSubmit={handleSubmit} >
+            <form className="form-edit" action="submit" onSubmit={handleSubmit} >
                 <input value={name} onChange={(e)=>{setName(e.target.value)}} type="text"/>
                 <input  value={km} onChange={(e)=>{setKm(e.target.value)}}  type="number" />
                 <input value={year} onChange={(e)=>{setYear(e.target.value)}} type="number" />

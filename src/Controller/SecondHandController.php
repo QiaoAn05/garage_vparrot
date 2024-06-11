@@ -31,7 +31,7 @@ class SecondHandController extends AbstractController
         return new JsonResponse($jsonContent, Response::HTTP_OK, [], true);
     }
 
-    #[Route('/car/create', name: 'car_create', methods: ['POST'])]
+    #[Route('/car/createOrUpdate', name: 'car_create', methods: ['POST'])]
     public function createOrUpdate(EntityManagerInterface $em, Request $request): JsonResponse
     {
         // Récupérer les données de la requête JSON
