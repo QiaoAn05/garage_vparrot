@@ -4,6 +4,16 @@ import CarTest from '../../images/car-test.jpg';
 export default function Car({carInfo, onClick, onEdit}) {
     //state
     //comportement
+    //ToDo: mettre à jour la date sans avoir à recharger la page.
+    const formatDate = (DateToFormat) => {
+        const date = new Date(DateToFormat);
+        return date.toLocaleDateString('fr-FR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    };
+
     //affichage (render)
     return(
         <>
@@ -16,7 +26,7 @@ export default function Car({carInfo, onClick, onEdit}) {
                         <div className='card-year'><h4>Année</h4><p>{carInfo.year}</p></div>
                     </div>
                     <p className='card-publishedAt'>
-                        Publié le { carInfo.updatedAt }
+                        Publié le { formatDate(carInfo.updatedAt) }
                         <span className='delUp-card'>
                             <button className="btn-update" onClick={onEdit}>Edit</button>
                             <button className="btn-delete" onClick={onClick}>X</button>
