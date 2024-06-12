@@ -23,6 +23,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('home', './assets/react/controllers/home.js')
     .addEntry('secondHand', './assets/react/controllers/secondHand.js')
+    .addEntry('login', './assets/react/controllers/login.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

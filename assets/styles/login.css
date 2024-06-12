@@ -1,0 +1,42 @@
+.section-connexion-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:#F2F2F2 ;
+    background-color: #262526;
+    margin: 2rem auto;
+    width: 50%;
+    border-radius: 10px;
+}
+
+h2, p {
+    text-align: center;
+}
+
+form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #262526;
+    color:#F2F2F2 ;
+}
+
+form input {
+    border: none;
+    padding: 0.5rem;
+}
+
+form button {
+    display: flex;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}

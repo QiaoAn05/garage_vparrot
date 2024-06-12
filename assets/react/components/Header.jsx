@@ -18,7 +18,7 @@ export default function Header() {
                         <li><a className='link' href="/Services">Entretiens & Réparations</a></li>
                         <li><a className='link' href="/SecondHand">Occasions</a></li>
                         <li><a className='link' href="/Contact">Contact</a></li>
-                        <li><a className='link' href="/Login">Connexion</a></li>
+                        <li><a className='link' href="/login">Connexion</a></li>
                     </ul>
                 </nav>
                 <button
