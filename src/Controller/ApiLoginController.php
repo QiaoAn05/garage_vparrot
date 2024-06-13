@@ -20,11 +20,11 @@ class ApiLoginController extends AbstractController
         }
 
         
-        // $token = 'votre_token_api';
-
+        $token = $this->getUser();
+        
         return $this->json([
             'user'  => $user->getUserIdentifier(),
-            // 'token' => $token,
+            'token' => $token,
         ]);
     }
 }

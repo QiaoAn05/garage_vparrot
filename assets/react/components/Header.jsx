@@ -6,7 +6,10 @@ export default function Header() {
     const toggleMenu = () => {
         setIsActive(!isActive);
     };
-
+    const valeur = localStorage.getItem('token');
+    console.log(valeur);
+    //ToDo : empty the localstorage when logout
+    // Try to get the PHPSESSID	oo108279qt6l5gj1tt9hd3ie9t
     return (
         <>
             <header>
@@ -18,7 +21,9 @@ export default function Header() {
                         <li><a className='link' href="/Services">Entretiens & Réparations</a></li>
                         <li><a className='link' href="/SecondHand">Occasions</a></li>
                         <li><a className='link' href="/Contact">Contact</a></li>
+                        {!valeur && (
                         <li><a className='link' href="/login">Connexion</a></li>
+                        )}
                         <li><a className='link' href="/logout">Déconnexion</a></li>
                     </ul>
                 </nav>
