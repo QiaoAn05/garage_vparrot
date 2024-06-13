@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import axios from 'axios';
@@ -7,6 +7,7 @@ export default function Login() {
     //state
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [user, setUser] = useState(null);
     
     //comportements
     const handleChangeUsername = (event) => {
@@ -28,7 +29,8 @@ export default function Login() {
         axios.post('/api/login', userToLog)
         .then(response => {
           console.log(response.data);
-          window.location.href = '/';
+          setUser(response.data.user);
+        //   window.location.href = '/';
         //   window.location.reload();
         })
         .catch(error => {
@@ -64,6 +66,10 @@ export default function Login() {
                 </div>
             </div>
             <section className='section-connexion-container'>
+            {user ? (
+                <p>Bonjour {user}</p>
+            ) : (
+                <>
                 <h2>Connectez-vous !</h2>
                 <p>Connexion pour les employées seulement.</p>
 
@@ -72,6 +78,8 @@ export default function Login() {
                     <input value={password} onChange={handleChangePassword} type="password" placeholder='Mot de passe...' required/>
                     <button>Se connecter</button>
                 </form>
+                </>
+            )}
             </section>
 
 

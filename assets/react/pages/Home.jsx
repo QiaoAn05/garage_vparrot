@@ -4,11 +4,17 @@ import Footer from '../components/Footer';
 import ImgMemory from '../../images/old-memory.jpg';
 import ImgServices from '../../images/tool.jpg';
 import ImgContact from '../../images/mailbox.jpg';
+// import Dashboard from '../components/Dashboard';
+import { AuthProvider } from '../context/AuthContext';
 
 export default function Home() {
     return (
         <>
-        <Header/>
+        <AuthProvider>
+            <Header/>
+        
+            {/* <Dashboard/> */}
+        </AuthProvider>
         <main>
             <div className='hero-banner'>
                 <div className='black-filter'>

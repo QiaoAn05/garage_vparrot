@@ -19,7 +19,11 @@ header {
     background-color: #262526;
     position: sticky;
     top: 0;
-}  
+} 
+
+header p {
+    color:#F2F2F2;
+}
 
 ul {
     display: flex;
