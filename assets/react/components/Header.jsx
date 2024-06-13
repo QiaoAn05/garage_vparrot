@@ -19,6 +19,7 @@ export default function Header() {
                         <li><a className='link' href="/SecondHand">Occasions</a></li>
                         <li><a className='link' href="/Contact">Contact</a></li>
                         <li><a className='link' href="/login">Connexion</a></li>
+                        <li><a className='link' href="/logout">Déconnexion</a></li>
                     </ul>
                 </nav>
                 <button

@@ -1,8 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import axios from 'axios';
 
 export default function Login() {
+    //state
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    
+    //comportements
+    const handleChangeUsername = (event) => {
+        setUsername(event.target.value);
+    }
+        
+    const handleChangePassword = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        //Copie du state
+        //manipulation de la copie du state
+        const usernameToLog = username;
+        const passwordToLog = password;
+        const userToLog = {"username": usernameToLog, "password": passwordToLog};
+        //modification du state avec le setter
+        axios.post('/api/login', userToLog)
+        .then(response => {
+          console.log(response.data);
+          window.location.href = '/';
+        //   window.location.reload();
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+
+    //affichage
     return (
         <>
         <Header/>
@@ -33,9 +67,9 @@ export default function Login() {
                 <h2>Connectez-vous !</h2>
                 <p>Connexion pour les employées seulement.</p>
 
-                <form action="submit">
-                    <input type="text" placeholder='Nom utilisateur...' />
-                    <input type="password" placeholder='Mot de passe...'/>
+                <form action="submit" onSubmit={handleSubmit}>
+                    <input value={username} onChange={handleChangeUsername} type="text" placeholder='Nom utilisateur...' required/>
+                    <input value={password} onChange={handleChangePassword} type="password" placeholder='Mot de passe...' required/>
                     <button>Se connecter</button>
                 </form>
             </section>
