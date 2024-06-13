@@ -21,6 +21,7 @@ const Log = () => {
         e.preventDefault()
         setIsLoggedIn(false)
         setAuthUser(null)
+        window.location.href = '/logout';
     }
 
     const LogIn = (e) => {
@@ -53,7 +54,7 @@ const Log = () => {
         : <button onClick={(e)=>{LogIn(e)}}>Log In</button>
         } */}
         {isLoggedIn
-        ? <li><a className='link' href="/" onClick={(e)=>{LogOut(e)}}>Déconnexion</a></li>
+        ? <li><a className='link' href="/logout" onClick={(e)=>{LogOut(e)}}>Déconnexion</a></li>
         : <li><a className='link' href="/" onClick={(e)=>{LogIn(e)}}>Connexion</a></li>
         }
         </>

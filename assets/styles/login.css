@@ -40,3 +40,7 @@ form button {
     cursor: pointer;
     margin-top: 0.5rem;
 }
+
+.errorMessage {
+    color: #D92332;
+}

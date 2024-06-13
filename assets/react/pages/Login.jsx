@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import axios from 'axios';
@@ -8,6 +8,7 @@ export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(null);
     
     //comportements
     const handleChangeUsername = (event) => {
@@ -34,7 +35,8 @@ export default function Login() {
         //   window.location.reload();
         })
         .catch(error => {
-          console.error(error);
+          console.error(error.message);
+          setErrorMessage(error.message);
         });
     }
 
@@ -72,14 +74,15 @@ export default function Login() {
                 <>
                 <h2>Connectez-vous !</h2>
                 <p>Connexion pour les employées seulement.</p>
-
+                {errorMessage ? <p className='errorMessage'>La requête n'a pas fonctionnée</p> : null}
+              
                 <form action="submit" onSubmit={handleSubmit}>
                     <input value={username} onChange={handleChangeUsername} type="text" placeholder='Nom utilisateur...' required/>
                     <input value={password} onChange={handleChangePassword} type="password" placeholder='Mot de passe...' required/>
                     <button>Se connecter</button>
                 </form>
                 </>
-            )}
+            ) }
             </section>
 
 

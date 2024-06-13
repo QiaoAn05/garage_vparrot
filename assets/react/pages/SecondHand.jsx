@@ -6,7 +6,6 @@ import CarForm from '../components/CarForm';
 import EditForm from '../components/EditForm';
 import axios from 'axios';
 
-
 export default function SecondHand() {
     // state (état, données)
     const [cars, setCars] = useState([])
