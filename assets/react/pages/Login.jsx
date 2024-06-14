@@ -41,7 +41,6 @@ export default function Login() {
                 </div>
                 <UserProvider>
                     <LoginComponent/>
-                    <ProfileComponent/>
                 </UserProvider>
             </main>
             <Footer/>
