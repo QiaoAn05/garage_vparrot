@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Header() {
+    //state
     const [isActive, setIsActive] = useState(false);
+    const [localS, setLocalS] = useState(null);
 
+    //comportements
     const toggleMenu = () => {
         setIsActive(!isActive);
     };
-    const valeur = localStorage.getItem('token');
-    console.log(valeur);
-    //ToDo : empty the localstorage when logout
-    // Try to get the PHPSESSID	oo108279qt6l5gj1tt9hd3ie9t
+
+    useEffect(() => {
+        setLocalS(localStorage.getItem('token'));
+    }, []);
+
+    const handleStorage = () => {
+        localStorage.clear();
+    }
+    
+    //affichage
     return (
         <>
             <header>
@@ -21,10 +30,11 @@ export default function Header() {
                         <li><a className='link' href="/Services">Entretiens & Réparations</a></li>
                         <li><a className='link' href="/SecondHand">Occasions</a></li>
                         <li><a className='link' href="/Contact">Contact</a></li>
-                        {!valeur && (
-                        <li><a className='link' href="/login">Connexion</a></li>
+                        { localS !== null ? (
+                            <li><a className='link' href="/logout" onClick={handleStorage}>Déconnexion</a></li>
+                        ) : (
+                            <li><a className='link' href="/login">Connexion</a></li>
                         )}
-                        <li><a className='link' href="/logout">Déconnexion</a></li>
                     </ul>
                 </nav>
                 <button

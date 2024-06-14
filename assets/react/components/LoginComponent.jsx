@@ -32,7 +32,7 @@ export default function LoginComponent() {
           setUser(response.data.user);
           const token = response.data.token.userIdentifier
           localStorage.setItem('token', token)
-        //   window.location.href = '/';
+          window.location.href = '/';
         //   window.location.reload();
         })
         .catch(error => {
