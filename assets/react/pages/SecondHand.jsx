@@ -9,8 +9,10 @@ import axios from 'axios';
 export default function SecondHand() {
     // state (état, données)
     const [cars, setCars] = useState([])
-
     const [editingCar, setEditingCar] = useState(null);
+    const [localS, setLocalS] = useState(null);
+
+    // comportements
 
     useEffect(() => {
         axios.get('/cars/read')
@@ -23,7 +25,11 @@ export default function SecondHand() {
             });
     }, []);
     
-    // comportements
+  
+
+    useEffect(() => {
+        setLocalS(localStorage.getItem('token'));
+    }, []);
 
     const handleDelete = (id) => {
         //1. copie du state
@@ -110,7 +116,9 @@ export default function SecondHand() {
                 </div>
             </div>
             <h2>Découvrez nos voitures d'occasions</h2>
-            {!editingCar && (
+            { localS && (
+                <>
+                {!editingCar && (
                 <CarForm handleAdd={handleAdd}/>
             )}
             
@@ -121,6 +129,9 @@ export default function SecondHand() {
                     handleCancel={()=>{setEditingCar(null)}}
                 />
             )}
+            </>
+            ) }
+            
             
             <section className='filter-container'>
                 <select name="filter" id="filter">
@@ -136,7 +147,7 @@ export default function SecondHand() {
                         <p>Il n'y a aucune voiture en vente pour le moment.</p>
                     ) : (
                     cars.map((car)=>(
-                        <Car key={car.id} carInfo={car} onClick={()=>handleDelete(car.id)} onEdit={()=>setEditingCar(car)}/>
+                        <Car localS={localS} key={car.id} carInfo={car} onClick={()=>handleDelete(car.id)} onEdit={()=>setEditingCar(car)}/>
                     ))
                 )}       
             </section>

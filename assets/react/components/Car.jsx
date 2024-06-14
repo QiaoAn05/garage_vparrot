@@ -1,7 +1,7 @@
 import React from "react";
 import CarTest from '../../images/car-test.jpg';
 
-export default function Car({carInfo, onClick, onEdit}) {
+export default function Car({carInfo, onClick, onEdit, localS}) {
     //state
     //comportement
     //ToDo: mettre à jour la date sans avoir à recharger la page.
@@ -27,10 +27,12 @@ export default function Car({carInfo, onClick, onEdit}) {
                     </div>
                     <p className='card-publishedAt'>
                         Publié le { formatDate(carInfo.updatedAt) }
+                        { localS && (
                         <span className='delUp-card'>
                             <button className="btn-update" onClick={onEdit}>Edit</button>
                             <button className="btn-delete" onClick={onClick}>X</button>
                         </span>
+                        )}
                     </p>                            
             </div>
         </>
