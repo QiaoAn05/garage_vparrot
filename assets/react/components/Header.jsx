@@ -27,9 +27,9 @@ export default function Header() {
                     <ul>
                         <li><a className='link' href="/">Accueil</a></li>
                         <li><a className='link' href="/about" disabled>A propos</a></li>
-                        <li><a className='link' href="/Services">Entretiens & Réparations</a></li>
-                        <li><a className='link' href="/SecondHand">Occasions</a></li>
-                        <li><a className='link' href="/Contact">Contact</a></li>
+                        <li><a className='link' href="/services">Services</a></li>
+                        <li><a className='link' href="/secondHand">Occasions</a></li>
+                        <li><a className='link' href="/contact">Contact</a></li>
                         { localS !== null ? (
                             <li><a className='link' href="/logout" onClick={handleStorage}>Déconnexion</a></li>
                         ) : (

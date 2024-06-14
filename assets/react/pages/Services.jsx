@@ -2,14 +2,14 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-export default function About() {
+export default function Services() {
     return (
         <>
         <Header/>
         <main>
             <div className='hero-banner'>
                 <div className='black-filter'>
-                    <h1>A PROPOS</h1>
+                    <h1>Services</h1>
                     <div className='hero-banner-infos'>
                         <p>
                             <b>Adresse : </b>
