@@ -17,7 +17,7 @@ export default function Header() {
     const handleStorage = () => {
         localStorage.clear();
     }
-    
+
     //affichage
     return (
         <>
@@ -26,7 +26,7 @@ export default function Header() {
                 <nav className={isActive ? 'active' : ''}>
                     <ul>
                         <li><a className='link' href="/">Accueil</a></li>
-                        <li><a className='link' href="/About">A propos</a></li>
+                        <li><a className='link' href="/about" disabled>A propos</a></li>
                         <li><a className='link' href="/Services">Entretiens & Réparations</a></li>
                         <li><a className='link' href="/SecondHand">Occasions</a></li>
                         <li><a className='link' href="/Contact">Contact</a></li>
