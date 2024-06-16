@@ -20,7 +20,7 @@ export default function Footer() {
                 </div>
                 <div>
                     <h3>Notre adresse</h3>
-                    <p>15 rue Beethoven, 76000, Toulouse</p>
+                    <p>15 rue de la brique, 31000, Toulouse</p>
                 </div>
             </div>
             <div className='footer-bottom-infos'>
