@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import ImgMemory from '../../images/old-memory.jpg';
 import ImgServices from '../../images/tool.jpg';
 import ImgContact from '../../images/mailbox.jpg';
+import HeroBannerInfos from '../components/HeroBannerInfos';
 
 export default function Home() {
     return (
@@ -13,22 +14,7 @@ export default function Home() {
             <div className='hero-banner'>
                 <div className='black-filter'>
                     <h1>GARAGE V.PARROT</h1>
-                    <div className='hero-banner-infos'>
-                        <p>
-                            <b>Adresse : </b>
-                            <br />
-                            15 rue Beethoven, 76000, Toulouse
-                        </p>
-                        <p>
-                            <b>Horaires d'ouverture : </b>
-                            <br />
-                            Lundi à vendredi : 8h45 - 12h00, 14h00 - 18h00.
-                            <br />
-                            Samedi : 8h45 - 12h00
-                            <br />
-                            Dimanche : Fermé
-                        </p>
-                    </div>
+                    <HeroBannerInfos/>
                     <button className='btn-contact'><a href="#contact">Nous contacter</a></button>
                 </div>
             </div>

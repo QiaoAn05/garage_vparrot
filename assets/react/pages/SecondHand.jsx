@@ -5,6 +5,7 @@ import Car from '../components/Car';
 import CarForm from '../components/CarForm';
 import EditForm from '../components/EditForm';
 import axios from 'axios';
+import HeroBannerInfos from '../components/HeroBannerInfos';
 
 export default function SecondHand() {
     // state (état, données)
@@ -96,22 +97,7 @@ export default function SecondHand() {
             <div className='hero-banner'>
                 <div className='black-filter'>
                     <h1>OCCASIONS</h1>
-                    <div className='hero-banner-infos'>
-                        <p>
-                            <b>Adresse : </b>
-                            <br />
-                            15 rue Beethoven, 76000, Toulouse
-                        </p>
-                        <p>
-                            <b>Horaires d'ouverture : </b>
-                            <br />
-                            Lundi à vendredi : 8h45 - 12h00, 14h00 - 18h00.
-                            <br />
-                            Samedi : 8h45 - 12h00
-                            <br />
-                            Dimanche : Fermé
-                        </p>
-                    </div>
+                    <HeroBannerInfos/>
                     <button className='btn-contact'><a href="#contact">Nous contacter</a></button>
                 </div>
             </div>
