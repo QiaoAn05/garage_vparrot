@@ -15,7 +15,7 @@ export default function Home() {
                 <div className='black-filter'>
                     <h1>GARAGE V.PARROT</h1>
                     <HeroBannerInfos/>
-                    <button className='btn-contact'><a href="#contact">Nous contacter</a></button>
+                    <button className='btn-contact'><a href="/contact">Nous contacter</a></button>
                 </div>
             </div>
             <section className='about'>

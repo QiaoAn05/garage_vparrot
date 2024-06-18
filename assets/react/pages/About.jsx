@@ -12,7 +12,7 @@ export default function About() {
                 <div className='black-filter'>
                     <h1>A PROPOS</h1>
                     <HeroBannerInfos/>
-                    <button className='btn-contact'><a href="#contact">Nous contacter</a></button>
+                    <button className='btn-contact'><a href="/contact">Nous contacter</a></button>
                 </div>
             </div>
             <p className='txt-center'>Page bientôt disponible</p>

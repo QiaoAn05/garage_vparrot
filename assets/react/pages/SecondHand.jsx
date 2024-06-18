@@ -98,7 +98,7 @@ export default function SecondHand() {
                 <div className='black-filter'>
                     <h1>OCCASIONS</h1>
                     <HeroBannerInfos/>
-                    <button className='btn-contact'><a href="#contact">Nous contacter</a></button>
+                    <button className='btn-contact'><a href="/contact">Nous contacter</a></button>
                 </div>
             </div>
             <h2>Découvrez nos voitures d'occasions</h2>

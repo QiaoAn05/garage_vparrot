@@ -22,7 +22,7 @@ export default function Login() {
                     <div className='black-filter'>
                         <h1>CONNEXION</h1>
                         <HeroBannerInfos/>
-                        <button className='btn-contact'><a href="#contact">Nous contacter</a></button>
+                        <button className='btn-contact'><a href="/contact">Nous contacter</a></button>
                     </div>
                 </div>
                 <UserProvider>

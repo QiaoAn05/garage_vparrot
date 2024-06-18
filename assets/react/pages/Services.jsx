@@ -12,7 +12,7 @@ export default function Services() {
                 <div className='black-filter'>
                     <h1>SERVICES</h1>
                     <HeroBannerInfos/>
-                    <button className='btn-contact'><a href="#contact">Nous contacter</a></button>
+                    <button className='btn-contact'><a href="/contact">Nous contacter</a></button>
                 </div>
             </div>
             <p className='txt-center'>Page bientôt disponible</p>
