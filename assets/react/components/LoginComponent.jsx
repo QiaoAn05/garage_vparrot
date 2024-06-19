@@ -21,18 +21,21 @@ export default function LoginComponent() {
     const handleSubmit = (event) => {
         event.preventDefault();
         //Copie du state
-        //manipulation de la copie du state
         const usernameToLog = username;
         const passwordToLog = password;
+        //manipulation de la copie du state
         const userToLog = {"username": usernameToLog, "password": passwordToLog};
         //modification du state avec le setter
         axios.post('/api/login', userToLog)
         .then(response => {
-          console.log(response.data.token);
+        //   console.log(response.data.token);
           setUser(response.data.user);
-          const token = response.data.token.userIdentifier
-          localStorage.setItem('token', token)
-          window.location.href = '/';
+        //   const token = response.data.token.userIdentifier
+          const tokenUsername = response.data.token.username;
+          const tokenRole = response.data.token.userIdentifier;
+          localStorage.setItem('tokenRole', tokenRole);
+          localStorage.setItem('tokenUsername', tokenUsername);
+        //   window.location.href = '/';
         //   window.location.reload();
         })
         .catch(error => {

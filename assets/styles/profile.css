@@ -1,0 +1,27 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user-infos {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    box-shadow: 0px 0px 5px 1px rgba(38, 37, 38,0.2);
+    width: 20%;
+    min-width: 150px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 8px;
+    background-color:#262526;
+    color: #F2F2F2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

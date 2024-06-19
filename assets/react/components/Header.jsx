@@ -11,7 +11,7 @@ export default function Header() {
     };
 
     useEffect(() => {
-        setLocalS(localStorage.getItem('token'));
+        setLocalS(localStorage.getItem('tokenRole'));
     }, []);
 
     const handleStorage = () => {
@@ -31,7 +31,10 @@ export default function Header() {
                         <li><a className='link' href="/secondHand">Occasions</a></li>
                         <li><a className='link' href="/contact">Contact</a></li>
                         { localS !== null ? (
-                            <li><a className='link' href="/logout" onClick={handleStorage}>Déconnexion</a></li>
+                            <>
+                                <li><a className='link' href="/profile">Profil</a></li>
+                                <li><a className='link' href="/logout" onClick={handleStorage}>Déconnexion</a></li>
+                            </>
                         ) : (
                             <li><a className='link' href="/login">Connexion</a></li>
                         )}

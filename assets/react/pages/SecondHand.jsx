@@ -29,7 +29,7 @@ export default function SecondHand() {
   
 
     useEffect(() => {
-        setLocalS(localStorage.getItem('token'));
+        setLocalS(localStorage.getItem('tokenRole'));
     }, []);
 
     const handleDelete = (id) => {
