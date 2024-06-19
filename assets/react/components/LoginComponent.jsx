@@ -35,7 +35,7 @@ export default function LoginComponent() {
           const tokenRole = response.data.token.userIdentifier;
           localStorage.setItem('tokenRole', tokenRole);
           localStorage.setItem('tokenUsername', tokenUsername);
-        //   window.location.href = '/';
+          window.location.href = '/profile';
         //   window.location.reload();
         })
         .catch(error => {
