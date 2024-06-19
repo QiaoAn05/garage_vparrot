@@ -22,8 +22,16 @@ export default function Login() {
         setConnectedUserRole(localStorage.getItem('tokenRole'));
     }, []);
 //To Do delete
-    const handleDelete = () => {
-        console.log("hello");
+    const handleDelete = (id) => {
+        console.log(id);
+        //copie du state
+        const usersCopy = [...users];
+        console.log("usersCopy", usersCopy);
+        //Manipulation sur la copie du state
+        const usersUpdated = usersCopy.filter( user => user.id !== id)
+        console.log("usersUpdated : ", usersUpdated);
+        //actualiser le state avec le setter
+        setUsers(usersUpdated);
     }
 
     // const handleChangeName = (event) => {
@@ -72,7 +80,7 @@ export default function Login() {
                                 <tr key={user.id}>
                                     <td>{user.username}</td>
                                     <td>{user.role}</td>
-                                    <td><button onClick={handleDelete}>X</button></td>
+                                    <td><button onClick={() => handleDelete(user.id)}>X</button></td>
                                 </tr>
                             ))}
                         </tbody>
