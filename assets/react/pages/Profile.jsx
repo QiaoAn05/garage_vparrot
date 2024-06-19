@@ -29,7 +29,13 @@ export default function Login() {
                     <p>Rôle : {userRole}</p>
                     <p>Nom : {username}</p>
                 </section>
-                <button>Ajouter un Employé</button>
+                <form action="submit">
+                    <h2>Création d'un employée</h2>
+                    <input type="text" placeholder="Nom de l'utilisateur" />
+                    <input type="password" placeholder="Mot de passe" />
+                    <button>Ajouter un Employé</button>
+                </form>
+                
             </main>
         </>
     );

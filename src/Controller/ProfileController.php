@@ -11,6 +11,8 @@ class ProfileController extends AbstractController
     #[Route('/profile', name: 'app_profile')]
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         return $this->render('profile/profile.html.twig', [
             'controller_name' => 'ProfileController',
         ]);
