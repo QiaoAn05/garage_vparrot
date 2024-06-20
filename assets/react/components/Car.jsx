@@ -29,7 +29,7 @@ export default function Car({carInfo, onClick, onEdit, localS}) {
                         Publié le { formatDate(carInfo.updatedAt) }
                         { localS && (
                         <span className='delUp-card'>
-                            <button className="btn-update" onClick={onEdit}>Edit</button>
+                            <button className="btn-update" onClick={onEdit}>Modifier</button>
                             <button className="btn-delete" onClick={onClick}>X</button>
                         </span>
                         )}

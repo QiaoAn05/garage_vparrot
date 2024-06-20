@@ -12,40 +12,49 @@ export default function Login() {
         { id: 3, username: "Tony", role:["employee"], password: "jndfepmm" }
     ]);
 
-    // const [newUsername, setNewUsername] = useState(null);
-    // const [newPassword, setNewPassword] = useState(null);
-    // const [newPasswordConfirmed, setNewPasswordConfirmed] = useState(null);
-    
+    const [newUsername, setNewUsername] = useState("");
+    const [newPassword, setNewPassword] = useState("");
+    const [newPasswordConfirmed, setNewPasswordConfirmed] = useState("");
+
     //comportements
     useEffect(() => {
         setConnectedUsername(localStorage.getItem('tokenUsername'));
         setConnectedUserRole(localStorage.getItem('tokenRole'));
     }, []);
-//To Do delete
+
     const handleDelete = (id) => {
         console.log(id);
         //copie du state
         const usersCopy = [...users];
-        console.log("usersCopy", usersCopy);
         //Manipulation sur la copie du state
         const usersUpdated = usersCopy.filter( user => user.id !== id)
-        console.log("usersUpdated : ", usersUpdated);
         //actualiser le state avec le setter
         setUsers(usersUpdated);
     }
 
-    // const handleChangeName = (event) => {
-    //     event.target.value
-    //     console.log(event.target.value);
-    // }
-    // const handleChangePassword = (event) => {
-    //     event.target.value
-    //     console.log(event.target.value);
-    // }
-    // const handleChangePasswordConfirmed = (event) => {
-    //     event.target.value
-    //     console.log(event.target.value);
-    // }
+    const handleChangeName = (event) => {
+        setNewUsername(event.target.value);
+    }
+    const handleChangePassword = (event) => {
+        setNewPassword(event.target.value);
+    }
+    const handleChangePasswordConfirmed = (event) => {
+        setNewPasswordConfirmed(event.target.value)
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        //copie du state
+        const usersCopy = [...users];
+        //manipulation de la copie du state
+        const id = new Date().getTime();
+        const username = newUsername;
+        const role = ["employee"];
+        const password = newPassword;
+        usersCopy.push({id, username, role, password})
+        //actualiser le state
+        setUsers(usersCopy);
+    }
 
     //affichage
     return (
@@ -58,13 +67,17 @@ export default function Login() {
                     <p>Rôle : {connectedUserRole}</p>
                     <p>Nom : {connectedUsername}</p>
                 </section>
-                {/* <form action="submit">
-                    <h2>Création d'un employée</h2>
-                    <input onChange={handleChangeName} type="text" placeholder="Entrer le nom de l'utilisateur" />
-                    <input onChange={handleChangePassword} type="password" placeholder="Choisir un mot de passe" />
-                    <input onChange={handleChangePasswordConfirmed} type="password" placeholder="Confirmer le mot de passe" />
-                    <button>Ajouter un Employé</button>
-                </form> */}
+
+                <section className='section-form'>
+                    <form action="submit" onSubmit={handleSubmit}>
+                        <h2>Création d'un employée</h2>
+                        <input value={newUsername} onChange={handleChangeName} type="text" placeholder="Entrer le nom de l'utilisateur" />
+                        <input onChange={handleChangePassword} type="password" placeholder="Choisir un mot de passe" />
+                        <input onChange={handleChangePasswordConfirmed} type="password" placeholder="Confirmer le mot de passe" />
+                        <button>Ajouter un Employé</button>
+                    </form>
+                </section>
+
                 <section>
                     <h2>Tous les utilisateurs</h2>
                     <table>
