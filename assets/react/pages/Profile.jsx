@@ -16,14 +16,23 @@ export default function Login() {
     const [newPassword, setNewPassword] = useState("");
     const [newPasswordConfirmed, setNewPasswordConfirmed] = useState("");
 
+    const [errorPwd, setErrorPwd] = useState(null);
+
     //comportements
+    useEffect(() => {
+        if (newPassword !== newPasswordConfirmed) {
+            setErrorPwd("Les mots de passe ne correspondent pas.")
+        } else {
+            setErrorPwd(null);
+        }
+        }, [newPassword, newPasswordConfirmed]);
+
     useEffect(() => {
         setConnectedUsername(localStorage.getItem('tokenUsername'));
         setConnectedUserRole(localStorage.getItem('tokenRole'));
     }, []);
 
     const handleDelete = (id) => {
-        console.log(id);
         //copie du state
         const usersCopy = [...users];
         //Manipulation sur la copie du state
@@ -44,6 +53,11 @@ export default function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        if (errorPwd) {
+            return;
+        }
+
         //copie du state
         const usersCopy = [...users];
         //manipulation de la copie du state
@@ -54,6 +68,10 @@ export default function Login() {
         usersCopy.push({id, username, role, password})
         //actualiser le state
         setUsers(usersCopy);
+        //réinitialiser les states
+        setNewUsername("");
+        setNewPassword("");
+        setNewPasswordConfirmed("");
     }
 
     //affichage
@@ -71,10 +89,29 @@ export default function Login() {
                 <section className='section-form'>
                     <form action="submit" onSubmit={handleSubmit}>
                         <h2>Création d'un employée</h2>
-                        <input value={newUsername} onChange={handleChangeName} type="text" placeholder="Entrer le nom de l'utilisateur" />
-                        <input onChange={handleChangePassword} type="password" placeholder="Choisir un mot de passe" />
-                        <input onChange={handleChangePasswordConfirmed} type="password" placeholder="Confirmer le mot de passe" />
+                        <input
+                            value={newUsername}
+                            onChange={handleChangeName}
+                            type="text"
+                            placeholder="Entrer le nom de l'utilisateur"
+                            required
+                        />
+                        <input
+                            value={newPassword}
+                            onChange={handleChangePassword}
+                            type="password"
+                            placeholder="Choisir un mot de passe"
+                            required
+                        />
+                        <input
+                            value={newPasswordConfirmed}
+                            onChange={handleChangePasswordConfirmed}
+                            type="password"
+                            placeholder="Confirmer le mot de passe"
+                            required
+                        />
                         <button>Ajouter un Employé</button>
+                        {errorPwd && <p className='error-password-message'>{errorPwd}</p>}
                     </form>
                 </section>
 

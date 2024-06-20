@@ -46,3 +46,7 @@ form input {
 table th, td {
     text-align: center;
 }
+
+.error-password-message {
+    color: #D92332;
+}
