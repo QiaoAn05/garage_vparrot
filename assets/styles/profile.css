@@ -21,6 +21,7 @@ main {
 
 .section-form {
     grid-area: sectionForm;
+    min-width: 100px;
 }
 
 .user-infos {
@@ -121,4 +122,6 @@ table th, td {
 
 .error-password-message {
     color: #D92332;
+    max-width: 400px;
+    align-self: center;
 }

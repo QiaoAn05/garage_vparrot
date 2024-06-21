@@ -48,7 +48,6 @@ export default function Login() {
          const usersCopy = [...users];
          //2. manipulation sur la copie du state
          const usersCopyUpdated = usersCopy.map((user) => user.id === userToUpdate.id ? userToUpdate : user);
-         console.log(userToUpdate);
          //3. modifier le state avec le setter
          setUsers(usersCopyUpdated);
          //Réinitialiser

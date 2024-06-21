@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
+import { validPassword } from "../security/Regex";
 
 export default function UserForm({ handleAdd }) {
     //state
     const [newUsername, setNewUsername] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [newPasswordConfirmed, setNewPasswordConfirmed] = useState("");
+    const [showPassword, setShowPassword] = useState(false)
 
     const [errorPwd, setErrorPwd] = useState(null);
 
     //comportement
     useEffect(() => {
         if (newPassword !== newPasswordConfirmed) {
-            setErrorPwd("Les mots de passe ne correspondent pas.")
+            setErrorPwd("Les mots de passe ne correspondent pas.");
+        } else if (!validPassword.test(newPassword)) {
+            setErrorPwd("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
         } else {
             setErrorPwd(null);
         }
-        }, [newPassword, newPasswordConfirmed]);
+    }, [newPassword, newPasswordConfirmed]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -46,7 +50,11 @@ export default function UserForm({ handleAdd }) {
         setNewPassword(event.target.value);
     }
     const handleChangePasswordConfirmed = (event) => {
-        setNewPasswordConfirmed(event.target.value)
+        setNewPasswordConfirmed(event.target.value);
+    }
+
+    const handleChangeShowPassword = () => {
+        setShowPassword(!showPassword);
     }
 
     //affichage
@@ -64,17 +72,25 @@ export default function UserForm({ handleAdd }) {
                 <input
                     value={newPassword}
                     onChange={handleChangePassword}
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="Choisir un mot de passe"
                     required
                 />
                 <input
                     value={newPasswordConfirmed}
                     onChange={handleChangePasswordConfirmed}
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="Confirmer le mot de passe"
                     required
                 />
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={showPassword}
+                        onChange={handleChangeShowPassword}
+                    />
+                    {showPassword ? "Cacher le mot de passe": "Afficher le mot de passe"}
+                </label>
                 <button className="btn-submit">Ajouter un Employé</button>
                 {errorPwd && <p className='error-password-message'>{errorPwd}</p>}
             </form>

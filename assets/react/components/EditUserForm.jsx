@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { validPassword } from "../security/Regex";
 
 export default function EditUserForm({ user, handleUpdate, handleCancel }) {
     //state
@@ -7,15 +8,18 @@ export default function EditUserForm({ user, handleUpdate, handleCancel }) {
     const [passwordConfirmed, setPasswordConfirmed] = useState(user.password);
     const role = ["employee"];
     const [errorPwd, setErrorPwd] = useState(null);
+    const [showPassword, setShowPassword] = useState(false)
 
     //comportements
     useEffect(() => {
         if (password !== passwordConfirmed) {
-            setErrorPwd("Les mots de passe ne correspondent pas.")
+            setErrorPwd("Les mots de passe ne correspondent pas.");
+        } else if (!validPassword.test(password)) {
+            setErrorPwd("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
         } else {
             setErrorPwd(null);
         }
-        }, [password, passwordConfirmed]);
+    }, [password, passwordConfirmed]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -23,6 +27,10 @@ export default function EditUserForm({ user, handleUpdate, handleCancel }) {
             return;
         }
         handleUpdate({ ...user, username, password, role });
+    }
+
+    const handleChangeShowPassword = () => {
+        setShowPassword(!showPassword);
     }
 
     //affichage
@@ -40,17 +48,25 @@ export default function EditUserForm({ user, handleUpdate, handleCancel }) {
                 <input
                     value={password}
                     onChange={(e)=>{setPassword(e.target.value)}}
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="Choisir un mot de passe"
                     required
                 />
                 <input
                     value={passwordConfirmed}
                     onChange={(e)=>{setPasswordConfirmed(e.target.value)}}
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="Confirmer le mot de passe"
                     required
                 />
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={showPassword}
+                        onChange={handleChangeShowPassword}
+                    />
+                    {showPassword ? "Cacher le mot de passe": "Afficher le mot de passe"}
+                </label>
                 <button className="btn-submit">Valider</button>
                 <button className="btn-cancel" type="button" onClick={handleCancel}>Annuler</button>
                 {errorPwd && <p className='error-password-message'>{errorPwd}</p>}
