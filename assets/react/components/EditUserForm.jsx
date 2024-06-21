@@ -53,14 +53,14 @@ export default function EditUserForm({ user, handleUpdate, handleCancel }) {
                     value={username}
                     onChange={(e)=>{setUsername(e.target.value)}}
                     type="text"
-                    placeholder="Entrer le nom de l'utilisateur"
+                    placeholder="Modifier le nom de l'utilisateur"
                     required
                 />
                 <input
                     value={password}
                     onChange={(e)=>{setPassword(e.target.value)}}
                     type={showPassword ? "text" : "password"}
-                    placeholder="Choisir un mot de passe"
+                    placeholder="Modifier le mot de passe"
                     required
                 />
                 <input

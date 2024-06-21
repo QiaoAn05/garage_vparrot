@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import User from '../components/User';
 import UserForm from '../components/UserForm';
 import EditUserForm from '../components/EditUserForm';
+import axios from 'axios';
 
 export default function Login() {
     //state
@@ -10,16 +11,23 @@ export default function Login() {
     const [connectedUsername, setConnectedUsername] = useState(null)
     const [editingUser, setEditingUser] = useState(null);
 
-    const [users, setUsers] = useState([
-        { id: 1, username: "Johan", role:["employee"], password: "hfnlezbezfbenmned" },
-        { id: 2, username: "Michael", role:["employee"], password: "okelnlfe" },
-        { id: 3, username: "Tony", role:["employee"], password: "jndfepmm" }
-    ]);    
+    const [users, setUsers] = useState([]);    
 
     //comportements
     useEffect(() => {
         setConnectedUsername(localStorage.getItem('tokenUsername'));
         setConnectedUserRole(localStorage.getItem('tokenRole'));
+    }, []);
+
+    useEffect(() => {
+        axios.get('/users/read')
+            .then(response => {
+                setUsers(response.data);
+                console.log(response);
+            })
+            .catch(error => {
+                console.error('Error fetching users:', error);
+            });
     }, []);
 
     const handleDelete = (id) => {
@@ -41,6 +49,15 @@ export default function Login() {
 
         //actualiser le state
         setUsers(usersCopy);
+
+        axios.post('/user/create', userToAdd)
+        .then(response => {
+          console.log(response.data);
+        //   window.location.reload();
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
 
     const updateUser = (userToUpdate) => {

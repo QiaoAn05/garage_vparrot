@@ -6,7 +6,7 @@ export default function User({ userInfo, onClick, onEdit }) {
         <>
             <tr>
                 <td>{userInfo.username}</td>
-                <td>{userInfo.role}</td>
+                <td>{userInfo.roles[0]}</td>
                 <td>
                     <button className="btn-edit" onClick={onEdit}>Modifier</button>
                     <button className="btn-delete" onClick={onClick}>X</button>
