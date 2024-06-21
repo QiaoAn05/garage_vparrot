@@ -82,6 +82,21 @@ main {
     transition: 0.2s;
 }
 
+.btn-cancel {
+    padding: 8px;
+    background-color:transparent;
+    color:#262526;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background-color: #262526;
+    color: #F2F2F2;
+    transition: 0.5s;
+}
+
 form {
     box-shadow: 0px 0px 5px 1px rgba(38, 37, 38,0.2);
     padding: 10px 20px;

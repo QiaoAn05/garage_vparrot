@@ -43,6 +43,18 @@ export default function Login() {
         setUsers(usersCopy);
     }
 
+    const updateUser = (userToUpdate) => {
+         //1. copie du state
+         const usersCopy = [...users];
+         //2. manipulation sur la copie du state
+         const usersCopyUpdated = usersCopy.map((user) => user.id === userToUpdate.id ? userToUpdate : user);
+         console.log(userToUpdate);
+         //3. modifier le state avec le setter
+         setUsers(usersCopyUpdated);
+         //Réinitialiser
+         setEditingUser(null);
+    }
+
     //affichage
     return (
         <>
@@ -81,8 +93,15 @@ export default function Login() {
                 </section>
 
                 <section className='section-form'>
-                    <UserForm handleAdd={handleAdd}/>
-                    <EditUserForm/>
+                    {editingUser ? (
+                        <EditUserForm
+                            user={editingUser}
+                            handleUpdate={updateUser}
+                            handleCancel={()=>{setEditingUser(null)}}
+                        />
+                    ) : (
+                        <UserForm handleAdd={handleAdd}/>
+                    )}
                 </section>
                 
             </main>
