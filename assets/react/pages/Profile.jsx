@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import User from '../components/User';
 import UserForm from '../components/UserForm';
+import EditUserForm from '../components/EditUserForm';
 
 export default function Login() {
     //state
     const [connectedUserRole, setConnectedUserRole] = useState(null)
     const [connectedUsername, setConnectedUsername] = useState(null)
+    const [editingUser, setEditingUser] = useState(null);
 
     const [users, setUsers] = useState([
         { id: 1, username: "Johan", role:["employee"], password: "hfnlezbezfbenmned" },
@@ -46,18 +48,16 @@ export default function Login() {
         <>
             <Header/>
             <main>
-                <h1>Profil de {connectedUsername}</h1>
+                <h1 className='title'>Profil de {connectedUsername}</h1>
                 <section className='user-infos'>
-                    <h2>Informations personnelles</h2>
-                    <p>Rôle : {connectedUserRole}</p>
-                    <p>Nom : {connectedUsername}</p>
+                    <div className='user-card'>
+                        <h2>Informations personnelles</h2>
+                        <p>Rôle : {connectedUserRole}</p>
+                        <p>Nom : {connectedUsername}</p>
+                    </div>
                 </section>
 
-                <section className='section-form'>
-                    <UserForm handleAdd={handleAdd}/>
-                </section>
-
-                <section>
+                <section className='users-table'>
                     <h2>Tous les utilisateurs</h2>
                     <table>
                         <thead>
@@ -69,10 +69,20 @@ export default function Login() {
                         </thead>
                         <tbody>
                             {users.map((user) => (
-                                <User key={user.id} userInfo={user} onClick={()=>handleDelete(user.id)} />
+                                <User
+                                    key={user.id}
+                                    userInfo={user}
+                                    onClick={()=>handleDelete(user.id)}
+                                    onEdit={()=>setEditingUser(user)}
+                                />
                             ))}
                         </tbody>
                     </table>
+                </section>
+
+                <section className='section-form'>
+                    <UserForm handleAdd={handleAdd}/>
+                    <EditUserForm/>
                 </section>
                 
             </main>

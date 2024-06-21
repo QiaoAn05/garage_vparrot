@@ -1,30 +1,85 @@
 main {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    display: grid;
+    grid-template-areas: 
+    "title title title"
+    "userInfos usersTable sectionForm";
+    padding: 30px 60px;
+    gap: 20px;
 }
+
+.title {
+    grid-area: title;
+}
+
+.users-table {
+    grid-area: usersTable;
+    justify-self: center;
+}
+
+.section-form {
+    grid-area: sectionForm;
+}
+
 .user-infos {
+    grid-area: userInfos;
+    
+}
+
+.user-card {
     border: none;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
     box-shadow: 0px 0px 5px 1px rgba(38, 37, 38,0.2);
-    width: 20%;
-    min-width: 150px;
     padding: 10px 20px;
-    margin-bottom: 30px;
     border-radius: 10px;
 }
 
-button {
+@media screen and (max-width: 920px) {
+    main {
+      grid-template-areas:
+      "title"
+      "userInfos"
+      "usersTable"
+      "sectionForm";
+      text-align: center;
+      gap: 10px;
+    }
+
+    .user-infos, .users-table, .section-form {
+        justify-self: center;
+    }
+}
+
+.btn-submit {
     padding: 8px;
     background-color:#262526;
     color: #F2F2F2;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.btn-delete, .btn-edit {
+    padding: 8px;
+    background-color:transparent;
+    color:#262526;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background-color: #D92332;
+    color:#F2F2F2;
+    transition: 0.2s;
+}
+.btn-edit:hover {
+    background-color:#262526;
+    color:#F2F2F2;
+    transition: 0.2s;
 }
 
 form {
@@ -46,6 +101,8 @@ form input {
 table th, td {
     text-align: center;
 }
+
+
 
 .error-password-message {
     color: #D92332;

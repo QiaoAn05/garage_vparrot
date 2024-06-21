@@ -75,7 +75,7 @@ export default function UserForm({ handleAdd }) {
                     placeholder="Confirmer le mot de passe"
                     required
                 />
-                <button>Ajouter un Employé</button>
+                <button className="btn-submit">Ajouter un Employé</button>
                 {errorPwd && <p className='error-password-message'>{errorPwd}</p>}
             </form>
         </>
