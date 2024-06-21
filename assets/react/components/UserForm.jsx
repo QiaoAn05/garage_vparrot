@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { validPassword } from "../security/Regex";
+import { validUsername } from "../security/Regex";
 
 export default function UserForm({ handleAdd }) {
     //state
@@ -9,6 +10,7 @@ export default function UserForm({ handleAdd }) {
     const [showPassword, setShowPassword] = useState(false)
 
     const [errorPwd, setErrorPwd] = useState(null);
+    const [errorUsername, setErrorUsername] = useState(null);
 
     //comportement
     useEffect(() => {
@@ -21,10 +23,18 @@ export default function UserForm({ handleAdd }) {
         }
     }, [newPassword, newPasswordConfirmed]);
 
+    useEffect(() => {
+        if (!validUsername.test(newUsername)) {
+            setErrorUsername("Le nom de l'utilisateur doit contenir entre 3 et 20 caractères et aucun chiffre ou caractère spécial.")
+        } else {
+            setErrorUsername(null);
+        }
+    })
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (errorPwd) {
+        if (errorPwd || errorUsername) {
             return;
         }
        
@@ -62,6 +72,7 @@ export default function UserForm({ handleAdd }) {
         <>
             <form action="submit" onSubmit={handleSubmit}>
                 <h2>Création d'un employée</h2>
+                {errorUsername && <p className='error-username-message'>{errorUsername}</p>}
                 <input
                     value={newUsername}
                     onChange={handleChangeName}

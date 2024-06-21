@@ -125,3 +125,8 @@ table th, td {
     max-width: 400px;
     align-self: center;
 }
+.error-username-message {
+    /* color: #D92332; */
+    max-width: 400px;
+    align-self: center;
+}
