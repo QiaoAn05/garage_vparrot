@@ -5,6 +5,7 @@ import ImgMemory from '../../images/old-memory.jpg';
 import ImgServices from '../../images/tool.jpg';
 import ImgContact from '../../images/mailbox.jpg';
 import HeroBannerInfos from '../components/HeroBannerInfos';
+import CarTest from '../../images/car-test.jpg';
 
 export default function Home() {
     return (
@@ -37,7 +38,7 @@ export default function Home() {
                 <img src={ImgServices} alt="photo de services" />
             </section>
             <section className='second-hand'>
-                <img src="" alt="photo de second-hand" />
+                <img src={CarTest} alt="photo de second-hand" />
                 <div>
                     <h2>Nos occasions</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus alias omnis quae ab ullam odit atque, 
