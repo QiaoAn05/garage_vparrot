@@ -23,7 +23,6 @@ export default function Login() {
         axios.get('/users/read')
             .then(response => {
                 setUsers(response.data);
-                console.log(response);
             })
             .catch(error => {
                 console.error('Error fetching users:', error);
@@ -37,6 +36,14 @@ export default function Login() {
         const usersUpdated = usersCopy.filter( user => user.id !== id)
         //actualiser le state avec le setter
         setUsers(usersUpdated);
+
+        axios.delete(`/user/delete/${id}`)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.error('Error deleting car:', error);
+            });
     }
     
 //fonction qui contient la manipulation du state user
@@ -53,7 +60,7 @@ export default function Login() {
         axios.post('/user/create', userToAdd)
         .then(response => {
           console.log(response.data);
-        //   window.location.reload();
+          window.location.reload();
         })
         .catch(error => {
           console.error(error);

@@ -50,7 +50,7 @@ export default function LoginComponent() {
              <section className='section-connexion-container'>
                 <h2>Connectez-vous !</h2>
                 <p>Connexion pour les employées seulement.</p>
-                {errorMessage ? <p className='errorMessage'>La requête n'a pas fonctionnée</p> : null}
+                {errorMessage ? <p className='errorMessage'>Les champs renseignés ne sont pas valides</p> : null}
               
                 <form action="submit" onSubmit={handleSubmit}>
                     <input value={username} onChange={handleChangeUsername} type="text" placeholder='Nom utilisateur...' required/>

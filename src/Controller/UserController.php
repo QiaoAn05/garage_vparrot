@@ -40,4 +40,15 @@ class UserController extends AbstractController
 
         return new JsonResponse(['message' => 'User saved successfully', 'user' => $data], Response::HTTP_CREATED);
     }
+
+    #[Route('/user/delete/{id}', name:'user_delete', methods:['DELETE'])]
+    public function deleteUser(EntityManagerInterface $em, int $id): JsonResponse
+    {
+        $user= $em->getRepository(User::class)->find($id);
+
+        $em->remove($user);
+        $em->flush();
+
+        return new JsonResponse(['message' => 'User has been deleted'], Response::HTTP_CREATED);
+    }
 }
