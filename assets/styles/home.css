@@ -2,6 +2,10 @@ section {
     padding: 20px 100px;
 }
 
+section p {
+    text-align: justify;
+}
+
 h2 {
     text-align: left;
 }
@@ -11,10 +15,23 @@ h2 {
         display: none;
     }
 
-
-    .hero-banner-infos {
-        width: 350px;
+    h2 {
+        text-align: center;
     }
 
+    .hero-banner-infos {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .hero-banner-infos p {
+        width: 100%;
+        text-align: center;
+    }
+
+    section {
+        padding: 20px 50px;
+        text-align: center;
+    }
 
 }

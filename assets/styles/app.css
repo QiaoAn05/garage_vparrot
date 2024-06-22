@@ -97,8 +97,6 @@ main {
     color: #262526;
 }
 
-
-
 .bg-dark {
     background-color: #262526;
     color: #F2F2F2;
@@ -130,7 +128,6 @@ footer {
 .footer-infos {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 30px;
 }
 
 .footer-bottom-infos {
@@ -175,8 +172,10 @@ h3 {
     }
 
     .footer-bottom-infos {
-        gap: 10px;
         font-size: 0.9rem;
+        flex-direction: column;
+        text-align: center;
+        padding: 0;
     }
 
     .nav-toggler {
@@ -218,5 +217,10 @@ h3 {
 
     .nav-toggler.active .l3 {
         transform: translateY(0px) rotate(-135deg);
+    }
+
+    .hero-banner-infos {
+        flex-direction: column;
+        text-align: center;
     }
 }

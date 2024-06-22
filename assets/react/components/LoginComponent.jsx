@@ -49,7 +49,7 @@ export default function LoginComponent() {
         <>
              <section className='section-connexion-container'>
                 <h2>Connectez-vous !</h2>
-                <p>Connexion pour les employées seulement.</p>
+                <p>Connexion pour les employés seulement.</p>
                 {errorMessage ? <p className='errorMessage'>Les champs renseignés ne sont pas valides</p> : null}
               
                 <form action="submit" onSubmit={handleSubmit}>
