@@ -1,4 +1,3 @@
-// src/components/ProfileComponent.js
 import React from "react";
 import { useUser } from "../context/UserContext";
 

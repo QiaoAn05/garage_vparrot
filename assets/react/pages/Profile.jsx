@@ -91,41 +91,44 @@ export default function Login() {
                         <p>Nom : {connectedUsername}</p>
                     </div>
                 </section>
+                {connectedUserRole === "admin" && (
+                    <>
+                        <section className='users-table'>
+                            <h2>Tous les utilisateurs</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Noms</th>
+                                        <th>Rôles</th>
+                                        <th>Mod. / Supp.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {users.map((user) => (
+                                        <User
+                                            key={user.id}
+                                            userInfo={user}
+                                            onClick={()=>handleDelete(user.id)}
+                                            onEdit={()=>setEditingUser(user)}
+                                        />
+                                    ))}
+                                </tbody>
+                            </table>
+                        </section>
 
-                <section className='users-table'>
-                    <h2>Tous les utilisateurs</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Noms</th>
-                                <th>Rôles</th>
-                                <th>Mod. / Supp.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {users.map((user) => (
-                                <User
-                                    key={user.id}
-                                    userInfo={user}
-                                    onClick={()=>handleDelete(user.id)}
-                                    onEdit={()=>setEditingUser(user)}
+                        <section className='section-form'>
+                            {editingUser ? (
+                                <EditUserForm
+                                    user={editingUser}
+                                    handleUpdate={updateUser}
+                                    handleCancel={()=>{setEditingUser(null)}}
                                 />
-                            ))}
-                        </tbody>
-                    </table>
-                </section>
-
-                <section className='section-form'>
-                    {editingUser ? (
-                        <EditUserForm
-                            user={editingUser}
-                            handleUpdate={updateUser}
-                            handleCancel={()=>{setEditingUser(null)}}
-                        />
-                    ) : (
-                        <UserForm handleAdd={handleAdd}/>
-                    )}
-                </section>
+                            ) : (
+                                <UserForm handleAdd={handleAdd}/>
+                            )}
+                        </section>
+                    </>
+                )}
                 
             </main>
         </>

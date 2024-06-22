@@ -10,13 +10,6 @@ const Log = () => {
         setIsLoggedIn
     } = useAuth();
 
-    // const LogIn = (e) => {
-    //     e.preventDefault()
-    //     setIsLoggedIn(true)
-    //     setAuthUser({
-    //         username: 'John'
-    //     })
-    // }
     const LogOut = (e) => {
         e.preventDefault()
         setIsLoggedIn(false)
@@ -35,7 +28,6 @@ const Log = () => {
         axios.post('/api/login', userToLog)
         .then(response => {
           console.log(response.data.user);
-        //   setUser(response.data.user);
           setIsLoggedIn(true)
           setAuthUser(response.data.user)
           console.log(authUser.user);
@@ -49,10 +41,6 @@ const Log = () => {
 
     return (
         <>
-        {/* {isLoggedIn
-        ? <button onClick={(e)=>{LogOut(e)}}>Log Out</button>
-        : <button onClick={(e)=>{LogIn(e)}}>Log In</button>
-        } */}
         {isLoggedIn
         ? <li><a className='link' href="/logout" onClick={(e)=>{LogOut(e)}}>Déconnexion</a></li>
         : <li><a className='link' href="/" onClick={(e)=>{LogIn(e)}}>Connexion</a></li>

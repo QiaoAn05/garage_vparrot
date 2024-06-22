@@ -32,7 +32,7 @@ export default function LoginComponent() {
           setUser(response.data.user);
         //   const token = response.data.token.userIdentifier
           const tokenUsername = response.data.token.username;
-          const tokenRole = response.data.token.userIdentifier;
+          const tokenRole = response.data.token.roles[0];
           localStorage.setItem('tokenRole', tokenRole);
           localStorage.setItem('tokenUsername', tokenUsername);
           window.location.href = '/profile';

@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { UserProvider } from '../context/UserContext';
-import ProfileComponent from '../components/ProfileComponents';
 import LoginComponent from '../components/LoginComponent';
 import HeroBannerInfos from '../components/HeroBannerInfos';
 
