@@ -14,7 +14,9 @@ export default function EditUserForm({ user, handleUpdate, handleCancel }) {
 
     //comportements
     useEffect(() => {
-        if (password !== passwordConfirmed) {
+        if (!password || password === "") {
+            setErrorPwd(null);
+        } else if (password !== passwordConfirmed) {
             setErrorPwd("Les mots de passe ne correspondent pas.");
         } else if (!validPassword.test(password)) {
             setErrorPwd("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
@@ -54,21 +56,18 @@ export default function EditUserForm({ user, handleUpdate, handleCancel }) {
                     onChange={(e)=>{setUsername(e.target.value)}}
                     type="text"
                     placeholder="Modifier le nom de l'utilisateur"
-                    required
                 />
                 <input
                     value={password}
                     onChange={(e)=>{setPassword(e.target.value)}}
                     type={showPassword ? "text" : "password"}
                     placeholder="Modifier le mot de passe"
-                    required
                 />
                 <input
                     value={passwordConfirmed}
                     onChange={(e)=>{setPasswordConfirmed(e.target.value)}}
                     type={showPassword ? "text" : "password"}
                     placeholder="Confirmer le mot de passe"
-                    required
                 />
                 <label>
                     <input

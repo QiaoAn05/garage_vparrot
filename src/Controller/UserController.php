@@ -49,6 +49,41 @@ class UserController extends AbstractController
         return new JsonResponse(['message' => 'User saved successfully', 'user' => $data], Response::HTTP_CREATED);
     }
 
+    #[Route('/user/update/{id}', name: 'user_update', methods:['PUT'])]
+    public function updateUser(EntityManagerInterface $em, Request $request, UserPasswordHasherInterface $passwordHasher, int $id): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
+        $user = $em->getRepository(User::class)->find($id);
+
+        if (!$user) {
+            throw $this->createNotFoundException(
+                'No user found for id '.$id
+            );
+        }
+
+        if (isset($data['username'])) {
+            $user->setUsername($data['username']);
+        }
+
+        if (isset($data['role'])) {
+            $user->setRoles($data['role']);
+        }
+
+        if (isset($data['password'])) {
+            $plaintextPassword = $data['password'];
+            $hashedPassword = $passwordHasher->hashPassword(
+                $user,
+                $plaintextPassword
+            );
+            $user->setPassword($hashedPassword);
+        }
+        
+
+        $em->flush();
+
+        return new JsonResponse(['message' => 'User updated successfully', 'user' => $data], Response::HTTP_CREATED);
+    }
+
     #[Route('/user/delete/{id}', name:'user_delete', methods:['DELETE'])]
     public function deleteUser(EntityManagerInterface $em, int $id): JsonResponse
     {

@@ -36,6 +36,7 @@ export default function Login() {
         const usersUpdated = usersCopy.filter( user => user.id !== id)
         //actualiser le state avec le setter
         setUsers(usersUpdated);
+        setEditingUser(null);
 
         axios.delete(`/user/delete/${id}`)
             .then(response => {
@@ -74,8 +75,18 @@ export default function Login() {
          const usersCopyUpdated = usersCopy.map((user) => user.id === userToUpdate.id ? userToUpdate : user);
          //3. modifier le state avec le setter
          setUsers(usersCopyUpdated);
+         console.log("userToUpdate : ", userToUpdate.id);
          //Réinitialiser
          setEditingUser(null);
+
+         axios.put(`/user/update/${userToUpdate.id}`, userToUpdate)
+        .then(response => {
+          console.log(response.data);
+        //   window.location.reload();
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
 
     //affichage
