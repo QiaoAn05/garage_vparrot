@@ -75,7 +75,6 @@ export default function Login() {
          const usersCopyUpdated = usersCopy.map((user) => user.id === userToUpdate.id ? userToUpdate : user);
          //3. modifier le state avec le setter
          setUsers(usersCopyUpdated);
-         console.log("userToUpdate : ", userToUpdate.id);
          //Réinitialiser
          setEditingUser(null);
 

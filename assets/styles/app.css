@@ -148,12 +148,13 @@ h3 {
         display: flex;
         justify-content: center;
         text-align: center;
-        align-items: center;
         position: absolute;
         top: 60px;
         width: 100%;
         background-color: #262526;
         height: 100vh;
+        padding-top: 8rem;
+        font-size: 1.5rem;
     }
 
     ul {

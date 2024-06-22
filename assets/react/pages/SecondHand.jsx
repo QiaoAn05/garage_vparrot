@@ -104,18 +104,18 @@ export default function SecondHand() {
             <h2>Découvrez nos voitures d'occasions</h2>
             { localS && (
                 <>
-                {!editingCar && (
-                <CarForm handleAdd={handleAdd}/>
-            )}
-            
-            {editingCar && (
-                <EditForm
-                    car={editingCar}
-                    handleUpdate={updateCar}
-                    handleCancel={()=>{setEditingCar(null)}}
-                />
-            )}
-            </>
+                    {!editingCar && (
+                        <CarForm handleAdd={handleAdd}/>
+                    )}
+                
+                    {editingCar && (
+                        <EditForm
+                            car={editingCar}
+                            handleUpdate={updateCar}
+                            handleCancel={()=>{setEditingCar(null)}}
+                        />
+                    )}
+                </>
             ) }
             
             

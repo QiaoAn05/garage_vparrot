@@ -125,3 +125,21 @@ form button {
 .form-edit {
     background-color: #FFC107;
 }
+
+@media screen and (max-width: 900px) {
+    form {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    form input {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    form button {
+        justify-content: center;
+        width: 10rem;
+        align-self: center;
+    }
+}
