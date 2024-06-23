@@ -25,7 +25,7 @@ export default function Home() {
                     <h2>Qui sommes-nous</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus alias omnis quae ab ullam odit atque, 
                     veniam suscipit voluptatibus quis nulla labore sapiente repellendus libero, rem molestiae dolorum eaque possimus?</p>
-                    <a className='link-primary' href="#">En savoir plus...</a>
+                    <a className='link-primary' href="/about">En savoir plus...</a>
                 </div>
             </section>
             <section className='services bg-dark'>
@@ -33,7 +33,7 @@ export default function Home() {
                     <h2>Nos Services</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus alias omnis quae ab ullam odit atque, 
                     veniam suscipit voluptatibus quis nulla labore sapiente repellendus libero, rem molestiae dolorum eaque possimus?</p>
-                    <a className='link-accent' href="#">En savoir plus...</a>
+                    <a className='link-accent' href="/services">En savoir plus...</a>
                 </div>
                 <img src={ImgServices} alt="photo de services" />
             </section>
@@ -43,7 +43,7 @@ export default function Home() {
                     <h2>Nos occasions</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus alias omnis quae ab ullam odit atque, 
                     veniam suscipit voluptatibus quis nulla labore sapiente repellendus libero, rem molestiae dolorum eaque possimus?</p>
-                    <a className='link-primary' href="#">Découvrir nos modèles</a>
+                    <a className='link-primary' href="/secondHand">Découvrir nos modèles</a>
                 </div>
             </section>
             <section className='contact bg-dark'>
@@ -51,7 +51,7 @@ export default function Home() {
                     <h2>Nous contacter</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus alias omnis quae ab ullam odit atque, 
                     veniam suscipit voluptatibus quis nulla labore sapiente repellendus libero, rem molestiae dolorum eaque possimus?</p>
-                    <a className='link-accent' href="#">Nous envoyer un message</a>
+                    <a className='link-accent' href="/contact">Nous envoyer un message</a>
                 </div>
                 <img src={ImgContact} alt="photo de contact" />
             </section>

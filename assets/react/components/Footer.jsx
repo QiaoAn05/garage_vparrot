@@ -7,6 +7,21 @@ export default function Footer() {
             <div className='footer-infos'>
                 <div>
                     <h3>Nos réseaux</h3>
+                    <a
+                        target='blank'
+                        className="icons8-facebook-nouveau"
+                        href='https://www.facebook.com/'>
+                    </a>
+                    <a
+                        target='blank'
+                        className="icons8-instagram"
+                        href='https://www.instagram.com/'>
+                    </a>
+                    <a
+                        target='blank' 
+                        className="icons8-x" 
+                        href='https://x.com/'>
+                    </a>
                 </div>
                 <div>
                     <h3>Nos horaires</h3>
