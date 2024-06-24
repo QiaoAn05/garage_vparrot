@@ -119,14 +119,14 @@ export default function SecondHand() {
             ) }
             
             
-            <section className='filter-container'>
+            {/* <section className='filter-container'>
                 <select name="filter" id="filter">
                     <option value=""></option>
                     <option value="">Prix</option>
                     <option value="">Années</option>
                     <option value="">Km</option>
                 </select>
-            </section>
+            </section> */}
 
             <section className='cards-container'>
                 {cars.length === 0 ? (

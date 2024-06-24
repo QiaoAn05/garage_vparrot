@@ -15,7 +15,10 @@ export default function Services() {
                     <button className='btn-contact'><a href="/contact">Nous contacter</a></button>
                 </div>
             </div>
-            <p className='txt-center'>Page bientôt disponible</p>
+            <div>
+                <p className='txt-center'>Page bientôt disponible</p>
+            </div>
+
         </main>
         <Footer/>
         </>

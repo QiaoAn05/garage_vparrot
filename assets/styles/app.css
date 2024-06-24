@@ -10,9 +10,10 @@ h1, h2, h3 {
     font-family: "Rajdhani", sans-serif;
 }
 
-#home {
+#home, #services, #about, #contact {
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 /* Header */
